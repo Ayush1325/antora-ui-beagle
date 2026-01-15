@@ -1,47 +1,74 @@
-<header class="header">
-  <nav class="navbar">
-    <div class="navbar-brand">
-    	<a id="navbar-logo" class="navbar-item" href="{{or site.url siteRootPath}}/{{site.homeUrl}}">
-    	  <img src="{{uiRootPath}}/img/logo.png" height=50>
-    	</a>
-      {{#if env.SITE_SEARCH_PROVIDER}}
-      <div class="navbar-item search hide-for-print">
-        <div id="search-field" class="field">
-          <input id="search-input" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
-        </div>
-      </div>
-      {{/if}}
-      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+<header class="navbar navbar-expand-lg sticky-top">
+  <nav class="container-fluid">
+    <a class="navbar-brand" href="{{or site.url siteRootPath}}/{{site.homeUrl}}">
+      <img src="{{uiRootPath}}/img/logo.png" height=40>
+    </a>
+
+    <button class="btn d-lg-none align-items-center text-muted me-2" type="button">
+      <i class="bi bi-search"></i>
+    </button>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-three-dots"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <hr class="d-lg-none">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Product A</a></li>
+            <li><a class="dropdown-item" href="#">Product B</a></li>
+            <li><a class="dropdown-item" href="#">Product C</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Service A</a></li>
+            <li><a class="dropdown-item" href="#">Service B</a></li>
+            <li><a class="dropdown-item" href="#">Service C</a></li>
+          </ul>
+        </li>
+
+        <hr class="d-lg-none">
+
+        <li class="nav-item d-lg-none d-flex flex-row mt-2 mb-2">
+          {{> header-socials}}
+        </li>
+
+        <hr class="d-lg-none">
+
+        <li class="nav-item dropdown me-3 d-lg-none d-flex flex-row mt-2 mb-2">
+          {{> theme-selector}}
+        </li>
+      </ul>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href="#">Home</a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Products</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Product A</a>
-            <a class="navbar-item" href="#">Product B</a>
-            <a class="navbar-item" href="#">Product C</a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Services</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Service A</a>
-            <a class="navbar-item" href="#">Service B</a>
-            <a class="navbar-item" href="#">Service C</a>
-          </div>
-        </div>
-        <div class="navbar-item">
-          <span class="control">
-            <a class="button is-primary" href="#">Download</a>
-          </span>
-        </div>
-      </div>
+
+    <button class="btn d-none d-lg-flex align-items-center border text-muted me-2" type="button">
+      <i class="bi bi-search me-2"></i>
+      <span class="me-2">Search</span>
+      <span class="badge border text-dark bg-white">Ctrl K</span>
+    </button>
+
+    <div class="nav-item dropdown me-3 d-none d-lg-flex">
+      {{> theme-selector}}
+    </div>
+
+    <div class="navbar-item d-none d-lg-flex">
+      {{> header-socials}}
     </div>
   </nav>
 </header>
